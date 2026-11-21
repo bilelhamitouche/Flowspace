@@ -10,19 +10,27 @@ type ButtonProps = BaseButtonProps & {
 };
 
 const variants: Record<ButtonVariant, string> = {
-    primary: ["bg-primary text-background", "hover:bg-primary-hover"].join(" "),
+    primary: [
+        "bg-primary text-background",
+        "hover:bg-primary-hover",
+        "border-transparent",
+    ].join(" "),
     secondary: ["bg-surface-secondary text-foreground", "hover:bg-muted"].join(
         " ",
     ),
     outline: [
-        "border boder-border bg-transparent text-foreground",
+        "border border-surface-secondary bg-transparent text-foreground",
         "hover:bg-surface-secondary",
     ].join(" "),
     ghost: [
         "bg-transparent text-foreground",
         "hover:bg-surface-secondary",
     ].join(" "),
-    danger: ["bg-red-700 text-background", "hover:bg-red-800"].join(" "),
+    danger: [
+        "bg-red-700 text-background",
+        "hover:bg-red-800",
+        "border-transparent",
+    ].join(" "),
 };
 
 const sizes: Record<ButtonSize, string> = {
@@ -44,7 +52,7 @@ export default function Button({
             {...props}
             className={[
                 "inline-flex shrink-0 items-center justify-center gap-2",
-                "border border-transparent font-semibold",
+                "font-semibold",
                 "transition-colors duration-100",
                 "focus-visible:outline-2 focus-visible:outline-offset-2",
                 "focus-visible:outline-focus-ring",

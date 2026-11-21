@@ -6,7 +6,9 @@ import MobileMenu from "./mobile-menu";
 export default function Header() {
     return (
         <header className="container mx-auto flex max-w-7xl items-center justify-between gap-8 p-4">
-            <Logo />
+            <Link href="/">
+                <Logo />
+            </Link>
             <nav className="mr-auto hidden items-center gap-6 text-sm font-semibold md:flex">
                 <Link
                     className="after:bg-primary relative after:absolute after:-bottom-0.5 after:left-0 after:h-0.5 after:w-0 after:transition-all after:duration-300 after:content-[''] hover:after:w-full"

@@ -13,7 +13,7 @@ export default defineConfig({
             input: ["resources/css/app.css", "resources/js/app.tsx"],
             refresh: true,
             fonts: [
-                google("Raleway", {
+                google("DM Sans", {
                     weights: [400, 500, 600],
                 }),
             ],
