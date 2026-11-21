@@ -4,6 +4,7 @@ import Footer from "@/components/footer";
 import GetStarted from "@/components/get-started";
 import Header from "@/components/header";
 import Hero from "@/components/hero";
+import Pricing from "@/components/pricing";
 import { Head } from "@inertiajs/react";
 
 export default function Welcome() {
@@ -19,6 +20,7 @@ export default function Welcome() {
                 <div className="bg-background w-full">
                     <BuiltForFocus />
                 </div>
+                <Pricing />
                 <div className="bg-primary w-full">
                     <GetStarted />
                 </div>
