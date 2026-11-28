@@ -37,11 +37,13 @@ export default function Header() {
             </nav>
             <div className="hidden items-center gap-4 md:flex">
                 <Button
+                    nativeButton={false}
                     size="lg"
                     variant="ghost"
                     render={<Link href="/auth/login">Log In</Link>}
                 />
                 <Button
+                    nativeButton={false}
                     size="lg"
                     render={<Link href="/auth/register">Get Started</Link>}
                 />

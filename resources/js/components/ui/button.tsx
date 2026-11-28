@@ -1,10 +1,12 @@
+import { cn } from "@/lib/utils";
 import { Button as BaseButton } from "@base-ui/react";
 import { ButtonProps as BaseButtonProps } from "@base-ui/react/button";
 
-type ButtonVariant = "primary" | "secondary" | "outline" | "ghost" | "danger";
+type ButtonVariant =
+    "primary" | "secondary" | "outline" | "ghost" | "destructive";
 type ButtonSize = "icon" | "sm" | "md" | "lg" | "xl";
 
-type ButtonProps = BaseButtonProps & {
+export type ButtonProps = BaseButtonProps & {
     variant?: ButtonVariant;
     size?: ButtonSize;
 };
@@ -26,7 +28,7 @@ const variants: Record<ButtonVariant, string> = {
         "bg-transparent text-foreground",
         "hover:bg-surface-secondary",
     ].join(" "),
-    danger: [
+    destructive: [
         "bg-red-700 text-background",
         "hover:bg-red-800",
         "border-transparent",
@@ -50,7 +52,7 @@ export default function Button({
     return (
         <BaseButton
             {...props}
-            className={[
+            className={cn(
                 "inline-flex shrink-0 items-center justify-center gap-2",
                 "font-semibold",
                 "transition-colors duration-100",
@@ -61,9 +63,7 @@ export default function Button({
                 variants[variant],
                 sizes[size],
                 className,
-            ]
-                .filter(Boolean)
-                .join(" ")}
+            )}
         />
     );
 }

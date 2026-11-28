@@ -19,6 +19,7 @@ export default function Hero() {
                 </p>
                 <div className="flex items-center gap-6">
                     <Button
+                        nativeButton={false}
                         size="xl"
                         render={
                             <Link href="/auth/register">
@@ -27,6 +28,7 @@ export default function Hero() {
                         }
                     />
                     <Button
+                        nativeButton={false}
                         size="xl"
                         variant="ghost"
                         render={

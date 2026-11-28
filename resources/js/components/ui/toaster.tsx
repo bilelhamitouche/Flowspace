@@ -1,6 +1,7 @@
 import { cn } from "@/lib/utils";
 import { Toast } from "@base-ui/react/toast";
 import {
+    FaBug,
     FaCircleCheck,
     FaExclamation,
     FaInfo,
@@ -15,9 +16,9 @@ const toastVariants = {
         iconBackground: "bg-green-100",
     },
     error: {
-        container: "bg-red-50 text-red-900",
+        container: "bg-destructive/10 text-red-900",
         icon: "text-red-600",
-        iconBackground: "bg-red-100",
+        iconBackground: "bg-destructive/20",
     },
     warning: {
         container: "bg-yellow-50 text-yellow-900",
@@ -38,7 +39,7 @@ const toastVariants = {
 
 const iconVariants = {
     success: <FaCircleCheck className={cn(toastVariants["success"].icon)} />,
-    error: <FaX className={cn(toastVariants["error"].icon)} />,
+    error: <FaBug className={cn(toastVariants["error"].icon)} />,
     warning: <FaExclamation className={cn(toastVariants["warning"].icon)} />,
     info: <FaInfo className={cn(toastVariants["info"].icon)} />,
     loading: <FaSpinner className={cn(toastVariants["loading"].icon)} />,
@@ -61,7 +62,7 @@ function ToastList({ closeButton = false }: { closeButton?: boolean }) {
                             key={toast.id}
                             toast={toast}
                             className={cn(
-                                "p-3 shadow-lg w-full rounded-sm",
+                                "p-4 shadow-lg w-full rounded-sm",
                                 variant.container,
                             )}
                         >
@@ -70,7 +71,8 @@ function ToastList({ closeButton = false }: { closeButton?: boolean }) {
                                     <Toast.Title
                                         className={cn(
                                             variant.container,
-                                            "text-sm font-bold",
+                                            "text-base font-bold",
+                                            "bg-transparent",
                                         )}
                                     />
                                     <Toast.Description className="text-muted-foreground text-sm" />
