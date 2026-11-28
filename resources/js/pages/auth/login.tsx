@@ -1,10 +1,10 @@
 import Logo from "@/components/logo";
 import Button from "@/components/ui/button";
 import Input from "@/components/ui/input";
-import { Separator } from "@base-ui/react";
+import { Checkbox, Separator } from "@base-ui/react";
 import { Link, useForm } from "@inertiajs/react";
 import { SubmitEvent } from "react";
-import { FaArrowRight, FaGoogle, FaSpinner } from "react-icons/fa6";
+import { FaArrowRight, FaCheck, FaGoogle, FaSpinner } from "react-icons/fa6";
 import { Toast } from "@base-ui/react";
 
 export default function Login() {
@@ -115,23 +115,23 @@ export default function Login() {
                         </div>
                         <div className="flex w-full flex-col items-start gap-2">
                             <div className="flex items-center gap-2">
-                                <Input
-                                    id="remember_token"
-                                    type="checkbox"
-                                    name="remember_token"
-                                    className="accent-primary size-4"
-                                    checked={data.remember_token}
-                                    onChange={(e) =>
-                                        setData(
-                                            "remember_token",
-                                            e.target.checked,
-                                        )
-                                    }
-                                />
                                 <label
                                     htmlFor="remember_token"
-                                    className="text-sm font-medium"
+                                    className="flex items-center gap-2 text-sm font-normal"
                                 >
+                                    <Checkbox.Root
+                                        id="remember_token"
+                                        name="remember_token"
+                                        checked={data.remember_token}
+                                        onCheckedChange={(checked) =>
+                                            setData("remember_token", checked)
+                                        }
+                                        className="border-muted-foreground bg-background text-background focus-visible:outline-primary data-checked:bg-primary data-checked:text-backgruond flex size-4 shrink-0 items-center justify-center rounded-none border p-0 focus-visible:outline-2 focus-visible:outline-offset-2"
+                                    >
+                                        <Checkbox.Indicator className="flex data-unchecked:hidden">
+                                            <FaCheck />
+                                        </Checkbox.Indicator>
+                                    </Checkbox.Root>
                                     Remember Me
                                 </label>
                             </div>
@@ -162,6 +162,7 @@ export default function Login() {
                         <Separator className="bg-muted h-px w-full flex-1" />
                     </div>
                     <Button
+                        nativeButton={false}
                         variant="outline"
                         size="lg"
                         className="w-full"

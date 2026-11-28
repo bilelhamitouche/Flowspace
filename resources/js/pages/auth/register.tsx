@@ -189,6 +189,7 @@ export default function Register() {
                         <Separator className="bg-muted h-px w-full flex-1" />
                     </div>
                     <Button
+                        nativeButton={false}
                         variant="outline"
                         size="lg"
                         className="w-full"
